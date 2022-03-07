@@ -1,0 +1,76 @@
+classDiagram
+%% all streams inherit from
+class Stream {
+    +stream
+    +linsep
+    ~_linesep = os.linesep
+    ~_stream
+}
+
+%% out streams
+    %% all out streams inherit from (std::ostream)
+    Stream <|-- OutStream
+    class OutStream {
+        ~_write(text)
+    }
+
+    %% stream to stdout (std::cout)
+    OutStream <|-- _Cout
+    class _Cout {
+        ~_stream = sys.stdout
+    }
+
+    %% stream out to file (std::ofstream)
+    FileStream <|-- OutFileStream
+    OutStream <|-- OutFileStream
+    class OutFileStream {
+        ~_default_mode = "w"
+    }
+
+    %% stream out to string (std::ostringstream)
+    StringStream <|-- OutStringStream
+    OutStream <|-- OutStringStream
+    class OutStringStream { }
+
+
+%% in streams
+    %% all in streams inherit from (std::istream)
+    Stream <|-- InStream
+    class InStream {
+        ~_read()
+    }
+
+    %% stream in from stdout (std::cin)
+    InStream <|-- _Cin
+    class _Cin {
+        ~_stream = sys.stdin
+    }
+
+    %% stream in from file (std::ifstream)
+    InStream <|-- InFileStream
+    FileStream <|-- InFileStream
+    class InFileStream {
+        ~_default_mode = "r"
+    }
+
+    %% stream in from a string (std::istringstream
+    StringStream <|-- InStringStream
+    InStream <|-- InStringStream
+    class InStringStream { }
+
+%% all file streams inherit from
+Stream <|-- FileStream
+class FileStream {
+    +is_open
+    +default_mode
+    ~_linesep = [newline]
+    ~_is_open = False
+    ~_default_mode = "r"
+
+    +open(path, mode)
+    +close()
+}
+
+%% all string streams inherit from
+Stream <|-- StringStream
+class StringStream { }
