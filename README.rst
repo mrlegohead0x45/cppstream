@@ -31,4 +31,4 @@ translates to
 
 See the inheritance diagram:
 
-.. include:: streams.mmd mermaid
+.. image:: streams.png
