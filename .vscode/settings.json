@@ -1,5 +1,0 @@
-{
-    "restructuredtext.confPath": "${workspaceFolder}\\docs\\source",
-    "esbonio.sphinx.confDir": "h:\\programming\\python\\iostream\\docs\\source",
-    "esbonio.server.enabled": true
-}
