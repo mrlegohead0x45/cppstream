@@ -6,6 +6,7 @@ cppstream.cout << 5 << "\n"
 s = "hello world\n"
 cppstream.cout << s
 
+
 # example of a streamable type
 class ExampleStreamableType:
     _iostream_streamable_from = True
@@ -18,6 +19,7 @@ class ExampleStreamableType:
     # binary left shift still usable
     def __lshift__(self, other: int):
         return self.value << other
+
 
 var = ExampleStreamableType()
 cppstream.cout << var << cppstream.endl
