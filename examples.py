@@ -1,18 +1,18 @@
-import iostream
+import cppstream
 
 # basic examples
-iostream.cout << "hello world" << iostream.endl
-iostream.cout << 5 << "\n"
+cppstream.cout << "hello world" << cppstream.endl
+cppstream.cout << 5 << "\n"
 s = "hello world\n"
-iostream.cout << s
+cppstream.cout << s
 
 # example of a streamable type
 class ExampleStreamableType:
     _iostream_streamable_from = True
     value = 8
 
-    def _iostream_stream_from(self, ostream: iostream.OutStream):
-        ostream << "hello from ExampleStreamableType" << iostream.endl
+    def _iostream_stream_from(self, ostream: cppstream.OutStream):
+        ostream << "hello from ExampleStreamableType" << cppstream.endl
         ostream << "value is " << self.value
 
     # binary left shift still usable
@@ -20,16 +20,16 @@ class ExampleStreamableType:
         return self.value << other
 
 var = ExampleStreamableType()
-iostream.cout << var << iostream.endl
+cppstream.cout << var << cppstream.endl
 
 
 # files
-ofs = iostream.OutFileStream()
+ofs = cppstream.OutFileStream()
 ofs.open("test.txt")
 ofs << "hello world\n"
 ofs.close()
 
 # it has a context manager too
-with iostream.OutFileStream() as ofs:
+with cppstream.OutFileStream() as ofs:
     ofs.open("test.txt", "a")
-    ofs << "hello from the outfilestream context manager" << iostream.endl
+    ofs << "hello from the outfilestream context manager" << cppstream.endl

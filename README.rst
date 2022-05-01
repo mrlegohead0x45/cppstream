@@ -1,4 +1,4 @@
-iostream
+cppstream
 --------
 
 This is a library that implements C++-style IO with streams in Python
@@ -18,16 +18,16 @@ translates to
 
 .. code:: python
 
-    import iostream
+    import cppstream
 
-    iostream.cout << "Hello, " << "World!" << iostream.endl
+    cppstream.cout << "Hello, " << "World!" << cppstream.endl
 
-    ostrm = iostream.OutFileStream()
+    ostrm = cppstream.OutFileStream()
 
     # or using the context manager 
-    with iostream.OutFileStream() as ofs:
+    with cppstream.OutFileStream() as ofs:
         ofs.open("test.txt")
-        ofs << "beans" << iostream.endl
+        ofs << "beans" << cppstream.endl
 
 See the inheritance diagram:
 
