@@ -20,7 +20,7 @@ pytest = "^7.1.2"
 profile = "black"
 
 [tool.mypy]
-exclude = "examples.py"
+exclude = ["examples.py", "docs/source/conf.py"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
