@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 from os import linesep
+from pathlib import Path
 from typing import IO, AnyStr, Optional
+
+PathLike = Path | str | bytes
 
 
 class Stream:
@@ -41,24 +44,21 @@ class FileStream(Stream):
     This class is not meant to be used directly.
     C++ equivalent: ``std::basic_fstream<char>``
 
-    :param fileobj: file object to wrap, defaults to None
-    :type fileobj: Optional[IO]
+    :param path: The path to the file to open.
+    :type path: Optional[PathLike]
+    :param mode: The mode to open the file in, defaults to :attr:`default_mode`.
+    :type mode: Optional[str]
     """
 
     _linesep = "\n"
     _is_open: bool = False
     _default_mode = "r"
 
-    def __init__(self, fileobj: Optional[IO] = None) -> None:
-        """
-        Construct a new FileStream object.
-
-        :param fileobj: file object to wrap, defaults to None
-        :type fileobj: Optional[IO]
-        """
-
-        if fileobj is not None:
-            self._stream = fileobj
+    def __init__(
+        self, path: Optional[PathLike] = None, mode: Optional[str] = None
+    ) -> None:
+        if path is not None:
+            self.open(path, mode)
 
     def __enter__(self) -> FileStream:
         return self
