@@ -32,4 +32,3 @@ jobs:
       - name: Build docs
         working-directory: ${{ github.workspace }}/docs
         run: poetry run sphinx-build -b html source build\html
-        
