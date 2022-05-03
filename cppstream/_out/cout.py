@@ -4,7 +4,9 @@ from .out import OutStream
 
 
 class _Cout(OutStream):
-    """Class that represents std::cout and writes to stdout
-    Inherits from Out"""
+    """
+    Class that represents the cout stream.
+    Not intended to be used directly, please use the :const:`cppstream.cout` variable instead.
+    """
 
     _stream = stdout

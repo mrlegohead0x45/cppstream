@@ -1,8 +1,8 @@
 __version__ = "0.1.0"
 
-__all__ = ["Stream", "OutStream", "OutFileStream", "cout", "endl"]
+__all__ = ["Stream", "FileStream", "OutStream", "OutFileStream", "cout", "endl"]
 
-from .base import Stream
+from .base import FileStream, Stream
 from .endl import _Endl
 from .out import OutFileStream, OutStream, cout
 
