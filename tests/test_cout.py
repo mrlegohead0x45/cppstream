@@ -1,33 +1,18 @@
 import sys
 
-import pytest
-
 from cppstream import cout as _real_cout
 
 
-@pytest.fixture
-def cout():
+def get_cout():
     _real_cout._stream = sys.stdout
     return _real_cout
 
 
-def test_cout(cout, capsys):
-    # with(capfd).disabled():
-    # cout._stream = sys.stdout
+def test_cout_basic(capsys):
+    cout = get_cout()
+
     cout << "Hello World!"
-
-    # cout.stream.flush()
-    # print("Hello World!")
-    # with capfd.disabled():
-    # print(cout.stream is sys.stdout) # False
-    cap = capsys.readouterr()
-    assert cap.out == "Hello World!"
-
-
-def test_cout_stream_replace(capsys):
-    _real_cout._stream = sys.stdout
-
-    _real_cout << "Hello World!"
+    cout << 5
 
     cap = capsys.readouterr()
-    assert cap.out == "Hello World!"
+    assert cap.out == "Hello World!5"
