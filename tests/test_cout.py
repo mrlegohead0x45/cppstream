@@ -50,4 +50,4 @@ def test_cout_custom_class_no_streamable(capsys):
 
     cap = capsys.readouterr()
     # e.g <test_cout.test_cout_custom_class_no_streamable.<locals>.MyClass object at 0x00000282D0AACEB0>
-    assert re.match("<[\w<>\.]+ object at 0x[\da-fA-F]+>", cap.out) is not None
+    assert re.match(r"<[\w<>\.]+ object at 0x[\da-fA-F]+>", cap.out) is not None
