@@ -41,6 +41,8 @@ jobs:
           poetry run `
             pytest `
               --cov=${{ github.workspace }}/cppstream/ --cov-report=xml
+      - run: |
+          tree /f 
 
       - name: Codecov
         uses: codecov/codecov-action@v3
