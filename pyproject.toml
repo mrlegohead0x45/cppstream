@@ -23,7 +23,7 @@ pytest-html = "^3.1.1"
 profile = "black"
 
 [tool.mypy]
-exclude = ["examples.py", "docs/source/conf.py"]
+exclude = ["examples.py", "docs/source/conf.py", "tests/*"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
