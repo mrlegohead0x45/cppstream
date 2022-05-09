@@ -1,7 +1,5 @@
 from tempfile import NamedTemporaryFile
 
-from pytest import raises
-
 from cppstream import FileStream
 
 
@@ -43,3 +41,9 @@ def test_filestream_constructor_opens():
         stream = FileStream(f.name)
         assert stream.is_open
         stream.close()
+
+
+def test_filestream_context_manager_opens():
+    with NamedTemporaryFile(delete=False) as f:
+        with FileStream(f.name) as stream:
+            assert stream.is_open
