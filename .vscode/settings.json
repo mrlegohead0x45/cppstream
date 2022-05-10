@@ -1,0 +1,11 @@
+{
+    "python.testing.pytestArgs": [
+        "tests",
+        "--cov=cppstream/",
+        "--cov-report=html",
+        "--html=report.html",
+        "--self-contained-html",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

@@ -46,5 +46,4 @@ jobs:
         run: |
           poetry run `
             mypy `
-              ${{ github.workspace }} ` 
-              ${{ github.workspace }}\tests
+              ${{ github.workspace }} ${{ github.workspace }}\tests
