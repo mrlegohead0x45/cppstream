@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - docs/**
+      - cppstream/** # because the docs are in the code
 
 jobs:
   publish-docs:
