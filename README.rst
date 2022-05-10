@@ -1,7 +1,9 @@
 cppstream
---------
+---------
 
-This is a library that implements C++-style IO with streams in Python
+This is a library that implements C++-style IO with streams in Python.
+It is **not** a wrapper around the actual C++ streams, but instead provides a
+higher-level interface that is more Pythonic.
 
 For example
 

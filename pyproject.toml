@@ -1,8 +1,22 @@
 [tool.poetry]
 name = "cppstream"
 version = "0.1.0"
-description = "c++-style io streams"
+description = "C++-style IO with streams"
 authors = ["mrlegohead0x45 <mrlegohead0x45@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/mrlegohead0x45/cppstream"
+repository = "https://github.com/mrlegohead0x45/cppstream"
+documentation = "https://mrlegohead0x45.github.io/cppstream"
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: C++",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
