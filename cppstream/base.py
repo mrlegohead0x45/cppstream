@@ -66,7 +66,7 @@ class FileStream(Stream):
     def __exit__(self, exc_type, exc_value, traceback) -> None:
         self.close()
 
-    def open(self, path: str, mode: Optional[str] = None) -> None:
+    def open(self, path: PathLike, mode: Optional[str] = None) -> None:
         """
         Open the stream from ``path`` for reading or writing.
         C++ equivalent: ``std::basic_fstream<char>::open``

@@ -39,11 +39,9 @@ jobs:
       - name: Run flake8
         run: |
           poetry run `
-            flake8 `
-              ${{ github.workspace }} `
-              ${{ github.workspace }}\tests
+            flake8 ${{ github.workspace }}
+
       - name: Run mypy
         run: |
           poetry run `
-            mypy `
-              ${{ github.workspace }} ${{ github.workspace }}\tests
+            mypy ${{ github.workspace }}
